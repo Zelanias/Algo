@@ -1,0 +1,226 @@
+Algorithm analsis
+	Which one is better to use
+Big O Upper bound (possibly equal)
+Theta Growth rates are equal
+Omega Lower bound 	(potentially equal)
+Little 0 UPper bound (not equal)
+
+Comparing 2 growths
+	Checking the limit of F/G
+	0 then F(N) = o(g(N))
+	c then f(N) = T(g(N))
+	inf    G(N) = 
+
+Model
+	All operation takes one unit of time, and infinite memory
+	ANalysis focused on algo indepdennt of machine
+
+Most important thing to study is running time, with size of input
+
+Divide and conquore is usually n log n
+	Takes constant time to reduce the size by a fraction Log N
+Reduces by a constant then N 
+_________________________________________________
+Lists Stacks and Queues
+Abstractdata type - set of obj with set of operation
+mathematical abstraction
+operation are defiend butu not implementation
+	Lists sets and graphsa re types of abstract type
+Arrays are expensive, because whatever operation takes O(N)
+	Accessing if having index is O(1)
+	Add/remove at end is (1)
+
+Java collections
+	Same type
+	Implment collection interafaec
+	Iterable 
+For each loops uses iterators
+	
+Interval
+	Collection
+		list
+
+________________________________________________________
+REVIEW
+	Exponent rules 
+	Log conversion 
+	Seiries need to transofrm it
+	Shown a proof and ask questions about it
+		Inductive case needs base case
+	Given recursive and whats output
+	Autoboxing, automatic casting an object
+	Inheritance
+	Type erasure
+	INput bottleneck 
+	Constant space/linear time/ONline solution - ideal solution
+	Euclids
+	
+____________________________________________
+Hashing
+	Key mapped to some number in range of table 0 to array size -1
+Linear probing
+	collision resolution by trying the next one
+Quadratic probing                                                                    
+	looks further and furhter away
+	less clustering
+	f(i) = i^2
+	1 ->4 -> 9
+Rehashing
+	if the table is full, make it twice as large and new function to move everything to new table
+Cuckoo hashing
+	ONe key displacing the other key in the other table
+	Bouncing back and forth the two tables
+	Cycling/looping can happen
+		rehash
+		but unlikely to happen if tables are half full
+Hopscotch hashing
+	Guarnetees an insert item is no futhre then a fixed distance fromhash location
+	Frees a spot close by sliding down other entries
+	if cant then reahsh
+	table with index with item and "hop" with a byte
+		the bits in the hop represents distance 
+Extendible hashing
+	Idea similar to B tree by splitting
+	root level and a leave level
+	leaf splits to provide growth wihtout affecting other leaves
+Hash tables
+	hash impletmentatinos of set and map, 
+	hashset and hashmap
+	.equals and hashcode
+		to be defined on hashed objects
+________________________
+queues FIFO
+Priority queue
+	items will be dequeed according to priroity, minimum value next
+Heap
+	can make a heap from random list in N time
+Skew Heap
+	merges in log N 
+	recursive merge is similar to lefist but left and righ are swapped
+Binomial queus
+	Log n for insert delete min and merge
+	O1 on insert on avg
+	
+___________________________________
+Sorting
+	Small sets can be stored in main meomery, internal sorting
+	Large exernal sorting
+	java comparable interface
+Insertion sort
+	N-1 passes
+	O(n^2)
+	N on a sorted list
+	Number of swaps = numbers of inversions
+Shell sort
+	Distance sort?
+	5-sorting swapping with the data 5 spaces away 
+	Final step is a 1-sort, which is same as insertion sort
+	starts with length/2 then /2/2/2/2/2 unti 1
+	not faster then insertion sort
+	N^2
+HIbbard N^3/2
+Sedgewidk N^3 4/3
+
+Heap sort
+	sort N log N
+	N deletemins each takes log N time
+
+Merge sort
+	Divide and conqure
+	n log n
+
+Quicksort
+	N log N avg
+	N^2 worst case, but verrryyy rare
+	Pivot, sort left(smaller) of it and rigt(larger) of it
+	like merge sort
+	Uses median of three to get a good estimate
+		Move pivot to right
+			two pointer I J
+			start and left of pivot
+			 compare and swap move 
+			 when I passes J then replace I with pivot
+	can be modified to find the kth largest/smallest item in a list
+Comparison based sorts lower bound is N log N
+	Decision Tree
+	D leaves 2^D leaves
+
+Bucket Sort
+	Input inteer value smaller than M
+	array size M
+	initalize everything ot 0 
+	Each count of an item, adds 1 to the count of the index
+	Traverse array will print in sorted order. 
+	Traversed in M time, printing takes N which is ON
+Radix sort
+	INput is integers
+	Bucket sort requried a bucket, so if large values large array
+	Radix uses smaller 
+	Sorting using digits(right to left) a single pass through per digit
+	O(N)
+External sorting
+	data is too large to sort. 
+	other algos are needed
+	ONe to read other to sort, other to write. repeat
+	Merge into single
+Multiway merge'	merging more then 2 at once Using multipletapes
+Polyphase merge
+	Merge K tapes into one tape, requiring K+1 tapes
+	Ideal split is the fibonacii sequence
+Replacement Selection
+	Continues until smllaer values are foudn 
+	By reusing space
+____________________________--
+DIsjoint set ADT
+	Union and find
+	equivalent relation ahd 3 properties
+		Reflective
+		Symmetric
+		transitive
+	Dynamic equivalence
+		~ is equivalence relation
+		a~b
+		constant time with 2D boolean values
+Find returns name of set with foud elemnt
+union combine 2 sets
+could use tree to represent set
+	then we can store in an array
+path compressions
+	make finds faster
+	everynode on path is made a child of root
+	future findsof thesee nodes are faster
+	log* -> iterative log, if its called again in the future.
+Maze generation
+	X cells needs X-1 walls removed
+______________________
+Minimum spaning tree
+	connecting all the nodes with the least weight verticies
+Prim's algorithm
+	Grows tree in successive stages
+	choose any vertex
+	choose edge with least ost, add to tree
+	repeat til all verticies are in tree
+	Greedy algo, essentially same as Dijkastras algo
+Krustkal's algo
+	continually select edges in order of smallest weight and accepts the edge if it does not cause a cycle
+Biconnectivity
+Articulation points if removed will disconnect part of the graph from antoehr part
+	DFS provides a way to find these points
+Euler circuits
+
+_____________________
+Insertion n^2 procedure
+Shell sort run time
+Heap sort - N log N,
+Merge sort - divide and conqour - N log N
+quickwsort = best/avg case N log N 
+quick select(to find kth largest or smallest item in a list)
+General lower boudn for sorting - N log N 
+Radix sort - N time
+Matching questino on running time
+External sort -  Ceiling Log(N/M) 
+Multiway merge
+Polyphase merge
+Know how each process works and its run time
+	implementation
+	
